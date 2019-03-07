@@ -1,0 +1,201 @@
+:root{
+    --main-color:#E3E3E3;
+    --secondary-color:#FBFBFB;
+    --text-primary-color:#E3E3E3;
+    --text-secondary-color:#FBFBFB;
+    --linear-gradient-bg:linear-gradient(to right, #ec008c, #fc6767);
+    --font-family:'Asap', sans-serif;
+}
+body,html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
+    font-family: var(--font-family);
+}
+#root{
+    height: 100%;
+    background: var(--linear-gradient-bg) var(--main-color);
+}
+.app{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 .3rem;
+}
+.app-content{
+    width: 100%;
+    max-width: 900px;
+    height: 80vh;
+    box-shadow: 3px 3px 10px rgb(49, 49, 49,0.4);
+    border-radius: 15px;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: 'r r m m m m'
+                         'r r m m m m'
+                         'r r m m m m'
+                         'r r m m m m'
+                       'ar ar am am am am';
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr) 120px;
+}   
+
+.roomList{
+    grid-area: r;
+    text-align: center;
+    background: var(--main-color);
+    padding: 1rem 0;
+    
+}
+
+.roomList h3{
+   font-size: 1.7rem;
+   font-weight: bolder;
+   margin-bottom: 2rem;
+}
+.roomList a{
+    text-decoration: none;
+    font-weight: thin;
+    display: block;
+    margin: .7rem 0;
+    color: rgb(134, 133, 133);
+    transition: .3s all;
+ }
+ .roomList a:hover{
+    color: var(--text-secondary-color);
+    text-shadow: 1px 1px 1px rgba(46, 45, 45, 0.239);
+ }
+ .selected{
+     text-decoration: underline !important;
+     color:rgb(68, 133, 255) !important;
+ }
+
+ .messageList{
+     grid-area: m;
+     position: relative;
+     background: var(--secondary-color);
+     overflow-y: scroll;
+     overflow-x: hidden;
+     box-sizing: border-box;
+     padding: 1rem 0 .3rem 2rem;
+ }
+ .message{
+     width: 100%;
+     margin: 1rem 0;
+     box-sizing: border-box;
+     padding: 1rem;
+     position: relative;
+     animation: popUp .3s linear; 
+     transition: .3s all;
+ }
+ @keyframes popUp{
+     33%{
+        transform: scale(1.03)
+     }
+     66%{
+        transform: scale(0.95)
+     }
+     66%{
+        transform: scale(1.01)
+     }
+ }
+ .msg-user{
+     position: absolute;
+     top: 0;
+     left: 0;
+     background: rgb(68, 133, 255);
+     color: white;
+     box-sizing: border-box;
+     padding: .6rem;
+     border-radius: 4px;
+ }
+ .msg-user::before{
+     position: absolute;
+     content: '';
+     bottom: 10;
+     left: -7px;
+     width: 0; 
+     height: 0; 
+     border-top: 10px solid transparent;
+     border-bottom: 10px solid transparent; 
+     border-right:10px solid rgb(68, 133, 255); 
+ }
+ .msg-text{
+    background: var(--main-color);
+    box-sizing: border-box;
+    padding: 2rem 1rem 1rem 1rem;
+    border-radius: 4px;
+    margin:0rem 0rem 0 3rem;
+}
+
+
+ .message-chooseRoom{
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-primary-color);
+    font-size: 3rem;
+    margin-top: 5rem;
+    
+ }
+
+ .newRoom{
+     grid-area: ar;
+     background: var(--main-color);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ .newRoom input{
+   border: none;
+   padding: .8rem 1.2rem;
+   box-sizing: border-box;
+   border-radius: 8px;
+   background: var(--secondary-color);
+   margin: 0 .5rem;
+}
+.newRoom button{
+    border: none;
+    padding: .8rem 1.2rem;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: var(--secondary-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: .6s all;
+ }
+ .sendForm{
+     grid-area: am;
+     background: rgb(161, 159, 159);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ .sendForm form{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sendForm form input{
+    height: 60%;
+    flex: 4;
+    border: none;
+    border-radius: 8px;
+    margin: 0 .3rem;
+    padding: 0 .8rem;
+}
+.sendForm form button{
+    height: 60%;
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    background: rgb(0, 89, 255);
+    cursor: pointer;
+}
