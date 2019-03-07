@@ -33,7 +33,7 @@ export default class NewRoomForm extends  Component{
                         value={this.state.roomName}
                         onChange={this.handleChange}
                         type='text'
-                        placeholder='NewRoomForm'
+                        placeholder='Create a new room'
                         required/>
                     <button id='create-room-btn' type='submit'> + </button>
                 </form>
