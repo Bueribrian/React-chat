@@ -3,7 +3,7 @@
     --secondary-color:#FBFBFB;
     --text-primary-color:#E3E3E3;
     --text-secondary-color:#FBFBFB;
-    --linear-gradient-bg:linear-gradient(to right, #ec008c, #fc6767);
+    --linear-gradient-bg: linear-gradient(to right, #00c9ff, #92fe9d);
     --font-family:'Asap', sans-serif;
 }
 body,html{
@@ -23,6 +23,7 @@ body,html{
     padding: 0;
     box-sizing: border-box;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     padding: 0 .3rem;
@@ -35,13 +36,14 @@ body,html{
     border-radius: 15px;
     overflow: hidden;
     display: grid;
-    grid-template-areas: 'r r m m m m'
+    grid-template-areas: 'u u u u u u'
+                         'r r m m m m'
                          'r r m m m m'
                          'r r m m m m'
                          'r r m m m m'
                        'ar ar am am am am';
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr) 120px;
+    grid-template-rows: 50px repeat(4, 1fr) 120px;
 }   
 
 .roomList{
@@ -92,6 +94,10 @@ body,html{
      animation: popUp .3s linear; 
      transition: .3s all;
  }
+ .message:nth-last-child() .msg-text{
+    background: green !important;
+    color: white !important;
+}
  @keyframes popUp{
      33%{
         transform: scale(1.03)
@@ -198,4 +204,60 @@ body,html{
     font-weight: bold;
     background: rgb(0, 89, 255);
     cursor: pointer;
+}
+
+.userPanel{
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    min-height: 50px;
+    background: var(--main-color);
+    border-radius: 14px;
+    box-shadow: 3px 3px 10px rgb(49, 49, 49,0.4); 
+    padding: 1rem;
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: center;
+    
+}
+.userPanel form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userPanel form input{
+    height: 60%;
+    
+    border: none;
+    background: #Fbfbfb !important;
+    border-radius: 8px;
+    margin: 1rem 10px;
+    padding: .5rem 1.2rem;
+}
+.userPanel form button{
+    height: 60%;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    background: rgb(0, 89, 255);
+    cursor: pointer;
+    padding: .5rem 1.2rem;
+}
+
+.userId{
+    grid-area: u;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ec008c;
+    background: rgb(70, 70, 70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 3px 3px 15px black;
+}
+
+.userId h3{
+    
 }
